@@ -1,1 +1,1 @@
-# tp-final-react-lucas-silvestre
+Repositorio para presentación del proyecto final hecho en React + JS
