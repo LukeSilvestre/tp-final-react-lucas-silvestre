@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/shared/NavBar";
 import HomePage from "./pages/HomePage";
-import ListaPokes from "./pages/PokemonListPage";
+import PokemonListPage from "./pages/PokemonListPage";
 
 import "./styles/App.css";
 
@@ -25,7 +25,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/ListaPokes" element={<ListaPokes />} />
+        <Route path="/PokemonListPage" element={<PokemonListPage />} />
       </Routes>
     </Router>
   );

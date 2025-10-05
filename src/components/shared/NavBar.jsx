@@ -1,6 +1,12 @@
 function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav
+      className="navbar navbar-expand-lg"
+      style={{
+        background: "linear-gradient(135deg, #e3350d 0%, #ffcb05 100%)",
+      }}
+      data-bs-theme="dark"
+    >
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           <i className="bi bi-shop me-2"></i>
