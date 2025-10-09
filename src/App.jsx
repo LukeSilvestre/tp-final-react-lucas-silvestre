@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import PokemonListPage from "./pages/PokemonListPage";
 
 import "./styles/App.css";
+import FavoritosPage from "./components/Favoritos";
 
 // @context: Estamos construyendo una Pokédex con 3 páginas (Home, Listado, Detalle).
 // HomePage ya está creada. Ahora necesito las rutas en App.jsx
@@ -25,7 +26,9 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/PokemonListPage" element={<PokemonListPage />} />
+        <Route path="/lista" element={<PokemonListPage />} />
+        {/* <Route path="/pokemon/:id" element={<PokemonDetailPage />} /> */}
+        <Route path="/favoritos" element={<FavoritosPage />} />
       </Routes>
     </Router>
   );

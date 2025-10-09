@@ -1,4 +1,9 @@
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 function NavBar() {
+  const { favoritos } = useSelector((state) => state.pokemon);
+
   return (
     <nav
       className="navbar navbar-expand-lg"
@@ -8,23 +13,32 @@ function NavBar() {
       data-bs-theme="dark"
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/">
           <i className="bi bi-shop me-2"></i>
           Comercio Pokémon
-        </a>
+        </Link>
         <div className="navbar-nav">
-          <a className="nav-link" href="/">
+          <Link className="nav-link" to="/">
             <i className="bi bi-house me-1"></i>
             Inicio
-          </a>
-          <a className="nav-link" href="/pokemons">
+          </Link>
+          <Link className="nav-link" to="/lista">
             <i className="bi bi-grid me-1"></i>
             Pokémons
-          </a>
-          <a className="nav-link" href="/carrito">
+          </Link>
+          <Link className="nav-link" to="/favoritos">
+            <i className="bi bi-heart me-1"></i>
+            Favoritos
+            {favoritos.length > 0 && (
+              <span className="badge bg-danger ms-1">
+                {favoritos.length}
+              </span> /* ---> Con esto miro el acumulado de favs */
+            )}
+          </Link>
+          <Link className="nav-link" to="/carrito">
             <i className="bi bi-cart me-1"></i>
             Carrito <span className="badge bg-secondary">0</span>
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
