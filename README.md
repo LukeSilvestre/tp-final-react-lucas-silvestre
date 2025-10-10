@@ -1,16 +1,85 @@
-# React + Vite
+# 🛒 Comercio Pokémon - TP Final React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Una aplicación web moderna desarrollada con React que simula un comercio de cartas Pokémon, implementando las mejores prácticas de desarrollo frontend.
 
-Currently, two official plugins are available:
+## 🚀 Características Implementadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### ✅ Completadas
 
-## React Compiler
+- **🏠 Página de Inicio** - Presentación del sitio y navegación
+- **📜 Listado de Pokémon** - Grid responsive con paginación
+- **🛒 Sistema de Carrito** - Agregar, remover y gestionar cantidades
+- **❤️ Sistema de Favoritos** - Toggle para marcar Pokémon favoritos
+- **📱 Diseño Responsive** - Adaptable a móviles, tablets y desktop
+- **🔄 Paginación** - Botón "Cargar más" con infinite scroll implícito
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+### 🔄 En Desarrollo
 
-## Expanding the ESLint configuration
+- [ ] 🔍 Página de Detalles de Pokémon
+- [ ] ⚔️ Sistema de Comparación
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tecnologías Utilizadas
+
+- **⚛️ React 19** - Biblioteca principal
+- **🎨 Bootstrap 5** - Framework CSS y componentes
+- **🔄 Redux Toolkit** - Gestión de estado global
+- **🧭 React Router DOM** - Navegación entre páginas
+- **💾 LocalStorage** - Persistencia de datos
+- **🌐 PokeAPI** - Fuente de datos de Pokémon
+
+## 📦 Instalación y Uso
+
+### Prerrequisitos
+
+- Node.js (versión 18 o superior)
+- npm
+
+### Pasos de instalación
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/LukeSilvestre/tp-final-react-lucas-silvestre.git
+
+# Navegar al directorio
+cd tp-final-react-lucas-silvestre
+
+# Instalar dependencias
+npm install
+
+# Ejecutar en modo desarrollo
+npm run dev
+```
+
+#### 🎯 Estructura del Proyecto
+
+src/
+├── components/ # Componentes reutilizables
+│ ├── PokemonCard/ # Card individual de Pokémon
+│ ├── Navbar/ # Navegación principal
+│ ├── CarritoPage/ # Página del carrito
+│ └── FavoritesPage/ # Página de favoritos
+├── pages/ # Páginas principales
+├── store/ # Configuración de Redux
+│ └── slices/ # Slices del estado
+├── services/ # APIs y servicios externos
+└── utils/ # Utilidades y helpers
+
+#### 🔧 Estado de Redux:
+
+La aplicación utiliza Redux Toolkit para gestionar:
+
+- pokemones[] - Lista de Pokémon cargados
+- favoritos[] - Pokémon marcados como favoritos
+- cart[] - Items en el carrito con cantidades
+- pagination - Control de paginación(Carga mas pokemones)
+- loading - Estados de carga
+
+#### 👨‍💻 Autor
+
+Lucas Silvestre
+GitHub: @LukeSilvestre
+Proyecto: TP Final React
+
+#### 📄 Licencia - Estudiante
+
+Este proyecto fue desarrollado como Trabajo Práctico Final para el curso de React.
