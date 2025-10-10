@@ -8,7 +8,7 @@ function HomePage() {
       <h2 id="hp-titulo">Comercio de Pokemones</h2>
       <p id="hp-parrafo">¡Tu sitio de compras de Pokemons Cards!</p>
       <br />
-      <Link to={"/lista"} className="btn btn-primary btn-lg">
+      <Link to={"/pokemons"} className="btn btn-primary btn-lg">
         <i className="bi bi-grid me-2"> Entrar </i>
       </Link>
     </div>

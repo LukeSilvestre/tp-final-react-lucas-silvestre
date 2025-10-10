@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { toggleFavorito } from "../store/slices/pokemonSlice";
+import { toggleFavorito, agregarAlCarrito } from "../store/slices/pokemonSlice";
 
-function PokemonCard({ pokemon, index }) {
+function PokemonCard({ pokemon }) {
   const precio = Math.floor(Math.random() * 100) + 50; // Precio entre 50 y 150
 
   const dispatch = useDispatch();
@@ -12,8 +12,20 @@ function PokemonCard({ pokemon, index }) {
     (favorito) => favorito.name === pokemon.name
   );
 
+  //manejador de favoritos
   const handleFavorito = () => {
     dispatch(toggleFavorito(pokemon));
+  };
+
+  //manejador del carrito
+  const handleAgregarAlCarrito = () => {
+    console.log(
+      "🎯 CLICK - Agregando al carrito:",
+      pokemon.name,
+      "Precio:",
+      precio
+    );
+    dispatch(agregarAlCarrito({ pokemon, precio }));
   };
 
   return (
@@ -23,12 +35,14 @@ function PokemonCard({ pokemon, index }) {
           <h5 className="card-title text-capitalize">{pokemon.name}</h5>
           <img
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${
-              index + 1
+              pokemon.url.split("/")[6]
             }.svg`}
             alt={pokemon.name}
             className="img-fluid"
             style={{ width: "96px", height: "96px" }}
           />
+
+          <p className="fw-bold text-success">${precio}</p>
           <div className="card-footer bg-transparent border-0 mt-3">
             {/* ❤️ Corazón Favoritos */}
             <div className="d-flex justify-content-between align-items-center">
@@ -42,8 +56,11 @@ function PokemonCard({ pokemon, index }) {
               </button>
               {/* <button className="btn btn-outline-danger btn-sm">♥</button> */}
               {/* 🛒 Carrito + Precio */}
-              <button className="btn btn-outline-success btn-sm">
-                🛒 ${precio}
+              <button
+                className="btn btn-outline-success btn-sm"
+                onClick={handleAgregarAlCarrito}
+              >
+                🛒
               </button>
               {/* ✅ Checkbox Comparación */}
               <div className="form-check">

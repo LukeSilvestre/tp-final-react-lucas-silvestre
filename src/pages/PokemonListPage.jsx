@@ -7,6 +7,7 @@ import {
   setPokemones,
   setLoading,
   setInitialLoad,
+  cargarMasPokemones,
 } from "../store/slices/pokemonSlice";
 
 function PokemonListPage() {
@@ -14,18 +15,11 @@ function PokemonListPage() {
   const [loading, setLoading] = useState(true);
  */
 
-  //Mando "pokemones, loading, initialLoad" a ser recogidos del store a traves del "reducer"
+  //Mando "pokemones, loading, initialLoad, paginacion" a ser recogidos del store a traves del "reducer"
   //llamado 'pokemon'
-  const { pokemones, loading, initialLoad } = useSelector(
+  const { pokemones, loading, initialLoad, paginacion } = useSelector(
     (state) => state.pokemon
   );
-
-  console.log("🔍 DIAGNÓSTICO - Estado completo:", {
-    pokemones,
-    loading,
-    initialLoad,
-  });
-  console.log("🔍 DIAGNÓSTICO - pokemones.length:", pokemones.length);
 
   const dispatch = useDispatch();
 
@@ -33,7 +27,7 @@ function PokemonListPage() {
     const loadPokemons = async () => {
       if (initialLoad) {
         dispatch(setLoading(true)); // Acción de cargar sólo si es la primera vez.
-        console.log("Cargando Pokémon por primera vez...");
+        /* console.log("Cargando Pokémon por primera vez..."); */
         //Pongo un TimeOut porque carga muy rápido y no se ve el Spinner.
         await new Promise((resolve) => setTimeout(resolve, 3000));
         const data = await obtenerPokes(20);
@@ -46,18 +40,25 @@ function PokemonListPage() {
         console.log("Los Pokemones YA ESTAN cargados, no volver a cargar");
       }
     };
-
     loadPokemons();
   }, [dispatch, initialLoad]);
 
-  console.log(
-    "🎯 El componente va a renderizar:",
-    loading ? "SPINNER" : "POKÉMON"
-  );
+  const handleCargarMas = async () => {
+    dispatch(setLoading(true));
 
+    try {
+      /* Llamo a la función obtenerPokes de la PokeAPI */
+      const data = await obtenerPokes(paginacion.limit, paginacion.offset);
+      dispatch(cargarMasPokemones(data.results));
+    } catch (error) {
+      console.error("Error cargando más Pokémon:", error);
+    } finally {
+      dispatch(setLoading(false));
+    }
+  };
   //Implementación del spinner traído desde Bootstrap
   /*   console.log("Loading: ", loading); */
-  if (loading) {
+  if (loading && initialLoad) {
     return (
       <div className="container mt-4">
         <div className="text-center">
@@ -79,10 +80,31 @@ function PokemonListPage() {
       <br />
       <p className="pklistpg-parrafo">Navegá por el catálogo disponible</p>
       <div className="row">
-        {/* Armé un mapeo para que cada pokemon caiga en una card de Bootstrap. Obtiene del store los datos*/}
+        {/* Armé un mapeo para que cada pokemon caiga en una card de Bootstrap. Obtiene los datos del store */}
         {pokemones.map((pokemon, index) => (
-          <PokemonCard key={pokemon.name} pokemon={pokemon} index={index} />
+          <PokemonCard key={`${pokemon.name}-${index}`} pokemon={pokemon} />
         ))}
+      </div>
+
+      {/* Botón para cargar mas pokes */}
+      <div className="text-center mt-4">
+        {paginacion.hayMas && (
+          /* disable es para que cuando esté cagando la primera vez, no aparezca */
+          <button
+            className="btn btn-primary"
+            onClick={handleCargarMas}
+            disabled={loading && !initialLoad}
+          >
+            {loading && initialLoad ? (
+              <>
+                <div className="spinner-border spinner-border-sm me-2"></div>
+                Cargando...
+              </>
+            ) : (
+              "Cargar más Pokémon"
+            )}
+          </button>
+        )}
       </div>
     </div>
   );

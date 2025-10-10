@@ -11,7 +11,7 @@ export const store = configureStore({
     pokemon: pokemonSlice,
   },
   //Esta línea sirve para que el estado se mantenga entre navegaciones,
-  //tanto para cuando está todo vaccío y en cero, como para cuando está cargado y tiene
+  //tanto para cuando está todo vacío y en cero, como para cuando está cargado y tiene
   //que llevar los datos entre la navegación.
   preloadedState: estadoPrecargado,
 });

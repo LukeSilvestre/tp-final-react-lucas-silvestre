@@ -1,8 +1,11 @@
 const POKEAPIBASE = "https://pokeapi.co/api/v2";
 
-export async function obtenerPokes(limit = 20) {
+export async function obtenerPokes(limit = 20, offset = 0) {
+  /* Valores por defecto: 20 pal limite y 0 pal offset */
   try {
-    const resp = await fetch(`${POKEAPIBASE}/pokemon?limit=${limit}`);
+    const resp = await fetch(
+      `${POKEAPIBASE}/pokemon?limit=${limit}&offset=${offset}`
+    );
     //Hasta que no se genera el json, no me entrega nada.
     const datos = await resp.json();
     return datos;

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function NavBar() {
-  const { favoritos } = useSelector((state) => state.pokemon);
+  const { favoritos, cart, cartTotal } = useSelector((state) => state.pokemon);
 
   return (
     <nav
@@ -22,7 +22,7 @@ function NavBar() {
             <i className="bi bi-house me-1"></i>
             Inicio
           </Link>
-          <Link className="nav-link" to="/lista">
+          <Link className="nav-link" to="/pokemons">
             <i className="bi bi-grid me-1"></i>
             Pokémons
           </Link>
@@ -37,7 +37,15 @@ function NavBar() {
           </Link>
           <Link className="nav-link" to="/carrito">
             <i className="bi bi-cart me-1"></i>
-            Carrito <span className="badge bg-secondary">0</span>
+            Carrito{" "}
+            {cart.length > 0 && (
+              <span className="badge bg-secondary ms-1">
+                {cart.length} - ${cartTotal}
+              </span>
+            )}
+            {cart.length === 0 && (
+              <span className="badge bg-secondary ms-1">0</span>
+            )}
           </Link>
         </div>
       </div>
