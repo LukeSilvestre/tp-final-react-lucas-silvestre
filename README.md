@@ -50,19 +50,21 @@ npm install
 npm run dev
 ```
 
-#### 🎯 Estructura del Proyecto
+## 🏗️ Estructura del Proyecto
 
+```plaintext
 src/
-├── components/ # Componentes reutilizables
-│ ├── PokemonCard/ # Card individual de Pokémon
-│ ├── Navbar/ # Navegación principal
-│ ├── CarritoPage/ # Página del carrito
-│ └── FavoritesPage/ # Página de favoritos
-├── pages/ # Páginas principales
-├── store/ # Configuración de Redux
-│ └── slices/ # Slices del estado
-├── services/ # APIs y servicios externos
-└── utils/ # Utilidades y helpers
+├── components/              # Componentes reutilizables
+│   ├── PokemonCard/         # Card individual de Pokémon
+│   ├── Navbar/              # Navegación principal
+│   ├── CarritoPage/         # Página del carrito
+│   └── FavoritesPage/       # Página de favoritos
+├── pages/                   # Páginas principales
+├── store/                   # Configuración de Redux
+│   └── slices/              # Slices del estado
+├── services/                # APIs y servicios externos
+└── utils/                   # Utilidades y helpers
+```
 
 #### 🔧 Estado de Redux:
 
