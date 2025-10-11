@@ -12,11 +12,7 @@ Una aplicación web moderna desarrollada con React que simula un comercio de car
 - **❤️ Sistema de Favoritos** - Toggle para marcar Pokémon favoritos
 - **📱 Diseño Responsive** - Adaptable a móviles, tablets y desktop
 - **🔄 Paginación** - Botón "Cargar más" con infinite scroll implícito
-
-### 🔄 En Desarrollo
-
-- [ ] 🔍 Página de Detalles de Pokémon
-- [ ] ⚔️ Sistema de Comparación
+- **🔍 Página de Detalles de Pokémon** - Ver el detalle de cada Pokémon con barra de progreso.
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -73,8 +69,9 @@ La aplicación utiliza Redux Toolkit para gestionar:
 - pokemones[] - Lista de Pokémon cargados
 - favoritos[] - Pokémon marcados como favoritos
 - cart[] - Items en el carrito con cantidades
-- pagination - Control de paginación(Carga mas pokemones)
+- paginación - Control de paginación(Carga mas pokemones)
 - loading - Estados de carga
+- scrollup - Ir a top cuando se da click cargar mas
 
 #### 👨‍💻 Autor
 
