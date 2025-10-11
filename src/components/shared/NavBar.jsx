@@ -22,7 +22,7 @@ function NavBar() {
             <i className="bi bi-house me-1"></i>
             Inicio
           </Link>
-          <Link className="nav-link" to="/pokemons">
+          <Link className="nav-link" to="/lista">
             <i className="bi bi-grid me-1"></i>
             Pokémons
           </Link>

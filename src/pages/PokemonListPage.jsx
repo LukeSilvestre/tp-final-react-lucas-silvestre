@@ -57,7 +57,6 @@ function PokemonListPage() {
     }
   };
   //Implementación del spinner traído desde Bootstrap
-  /*   console.log("Loading: ", loading); */
   if (loading && initialLoad) {
     return (
       <div className="container mt-4">

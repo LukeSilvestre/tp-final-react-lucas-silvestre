@@ -6,6 +6,7 @@ import PokemonListPage from "./pages/PokemonListPage";
 import "./styles/App.css";
 import FavoritosPage from "./components/Favoritos";
 import CarritoPage from "./components/CarritoPage";
+import PokeDetalle from "./components/PokeDetalle";
 
 function App() {
   //const [count, setCount] = useState(0);
@@ -15,8 +16,8 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/pokemons" element={<PokemonListPage />} />
-        {/* <Route path="/pokemon/:id" element={<PokemonDetailPage />} /> */}
+        <Route path="/lista" element={<PokemonListPage />} />
+        <Route path="/lista/:id" element={<PokeDetalle />} />
         <Route path="/favoritos" element={<FavoritosPage />} />
         <Route path="/carrito" element={<CarritoPage />} />
       </Routes>
