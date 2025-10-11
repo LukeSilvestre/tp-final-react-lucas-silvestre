@@ -1,8 +1,23 @@
-const POKEAPIBASE = "https://pokeapi.co/api/v2";
+/* const POKEAPIBASE = "https://pokeapi.co/api/v2"; */
 
-export async function obtenerPokes(limit = 20) {
+export async function obtenerPokes(limit = 20, offset = 0, id = null) {
+  /* Valores por defecto: 20 pal limite y 0 pal offset */
   try {
-    const resp = await fetch(`${POKEAPIBASE}/pokemon?limit=${limit}`);
+    let url;
+
+    if (id) {
+      //para los detalles necesito la url con id
+      url = `https://pokeapi.co/api/v2/pokemon/${id}/`;
+    } else {
+      //para listar, necesito la url pero con limit y offset, así que la pokeApi tiene ambas maneras.
+      url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
+    }
+
+    const resp = await fetch(url);
+
+    if (!resp.ok) {
+      throw new Error(`HTTP error! status: ${resp.status}`);
+    }
     //Hasta que no se genera el json, no me entrega nada.
     const datos = await resp.json();
     return datos;
