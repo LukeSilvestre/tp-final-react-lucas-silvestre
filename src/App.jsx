@@ -7,6 +7,7 @@ import "./styles/App.css";
 import FavoritosPage from "./components/Favoritos";
 import CarritoPage from "./components/CarritoPage";
 import PokeDetalle from "./components/PokeDetalle";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   //const [count, setCount] = useState(0);
@@ -21,6 +22,7 @@ function App() {
         <Route path="/favoritos" element={<FavoritosPage />} />
         <Route path="/carrito" element={<CarritoPage />} />
       </Routes>
+      <ScrollToTop />
     </Router>
   );
 }

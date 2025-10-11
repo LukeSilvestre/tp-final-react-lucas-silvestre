@@ -31,7 +31,6 @@ function PokemonCard({ pokemon }) {
       <div className="card h-100 shadow-sm">
         <div className="card-body text-center">
           <h5 className="card-title text-capitalize">{pokemon.name}</h5>
-
           {/* La imagen se puede clickear */}
           <Link to={`/lista/${pokemonId}`}>
             <img
@@ -43,14 +42,14 @@ function PokemonCard({ pokemon }) {
               style={{ width: "96px", height: "96px" }}
             />
           </Link>
-
+          {/* Precio en verde */}
           <p className="fw-bold text-success">${precio}</p>
           <div className="card-footer bg-transparent border-0 mt-3">
             {/* ❤️ Corazón Favoritos */}
-            <div className="d-flex justify-content-between align-items-center">
+            <div className="d-flex justify-content-center gap-4">
               <button
-                className={`btn btn-sm ${
-                  esFavorito ? "btn-danger" : "btn-outline-danger"
+                className={`btn btn-sm btn-outline-secondary ${
+                  esFavorito ? "❤️" : "🤍"
                 }`}
                 onClick={handleFavorito}
               >
@@ -62,13 +61,13 @@ function PokemonCard({ pokemon }) {
                 className="btn btn-outline-success btn-sm"
                 onClick={handleAgregarAlCarrito}
               >
-                🛒
+                🛒 Agregar
               </button>
               {/* ✅ Checkbox Comparación */}
-              <div className="form-check">
+              {/* <div className="form-check">
                 <input type="checkbox" className="form-check-input" />
                 <label className="form-check-label small">Comparar</label>
-              </div>
+              </div> */}
             </div>
           </div>
           {/* <p className="text-muted small mt-2">ID: {index + 1}</p> */}

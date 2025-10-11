@@ -48,7 +48,10 @@ function PokemonListPage() {
 
     try {
       /* Llamo a la función obtenerPokes de la PokeAPI */
-      const data = await obtenerPokes(paginacion.limit, paginacion.offset);
+      const data = await obtenerPokes(
+        paginacion.limit,
+        paginacion.offset + paginacion.limit
+      );
       dispatch(cargarMasPokemones(data.results));
     } catch (error) {
       console.error("Error cargando más Pokémon:", error);

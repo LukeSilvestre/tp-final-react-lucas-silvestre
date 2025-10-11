@@ -39,12 +39,12 @@ function NavBar() {
             <i className="bi bi-cart me-1"></i>
             Carrito{" "}
             {cart.length > 0 && (
-              <span className="badge bg-secondary ms-1">
+              <span className="badge bg-secondary ms-1 small">
                 {cart.length} - ${cartTotal}
               </span>
             )}
             {cart.length === 0 && (
-              <span className="badge bg-secondary ms-1">0</span>
+              <span className="badge bg-secondary ms-1 small">0</span>
             )}
           </Link>
         </div>
