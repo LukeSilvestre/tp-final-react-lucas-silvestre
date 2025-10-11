@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function ScrollToTop() {
+function ScrollArriba() {
   const [visibilidad, setVisibilidad] = useState(false);
 
   //uso el useEffect para ejecutar la aparición del botón "Ir Arriba" + incorporacion del listener.
@@ -22,7 +22,7 @@ function ScrollToTop() {
     };
   }, []);
 
-  const scrollToTop = () => {
+  const ScrollArriba = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -33,7 +33,7 @@ function ScrollToTop() {
     <>
       {visibilidad && (
         <button
-          onClick={scrollToTop}
+          onClick={ScrollArriba}
           className="btn btn-primary position-fixed"
           style={{
             bottom: "20px",
@@ -51,4 +51,4 @@ function ScrollToTop() {
     </>
   );
 }
-export default ScrollToTop;
+export default ScrollArriba;
